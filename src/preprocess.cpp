@@ -477,8 +477,6 @@ void Preprocess::velodyne_handler(const sensor_msgs::PointCloud2::ConstPtr &msg)
 
         if (added_pt.curvature < time_last[layer]) added_pt.curvature += 360.0 / omega_l;
 
-        // added_pt.curvature = pl_orig.points[i].t;
-
         yaw_last[layer] = yaw_angle;
         time_last[layer] = added_pt.curvature;
       }

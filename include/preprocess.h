@@ -70,13 +70,18 @@ struct EIGEN_ALIGN16 Point
 {
   PCL_ADD_POINT4D;
   float intensity;
-  std::uint32_t time;  // Changed from t to time
-  std::uint16_t ring;
+  float time;  // Changed to float to match standard Velodyne output
+  uint16_t ring;  // Changed to uint16_t (same as std::uint16_t but more consistent with Velodyne ROS driver output)
   EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 };
 } // namespace velodyne_ros
 POINT_CLOUD_REGISTER_POINT_STRUCT(velodyne_ros::Point,
-                                  (float, x, x)(float, y, y)(float, z, z)(float, intensity, intensity)(std::uint32_t, time, time)(std::uint16_t, ring, ring))
+                                  (float, x, x)
+                                  (float, y, y)
+                                  (float, z, z)
+                                  (float, intensity, intensity)
+                                  (float, time, time)
+                                  (uint16_t, ring, ring))
 /****************/
 
 /*** Ouster ***/
